@@ -1,0 +1,5 @@
+<launch>
+    <node pkg="follow_demo" type="robot_base" name="robotBaseNodes">
+        <rosparam file="$(find follow_demo)/param/params.yaml" command="load" />
+    </node>
+</launch>
