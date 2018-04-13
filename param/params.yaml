@@ -1,10 +1,16 @@
 debug: true
 
-dist2wall: 0.75   
-deg_sample1: 30
-deg_sample2: 60
+dist2wall: 0.6
+deg_sample1: 45.0
+deg_sample2: 60.0
 
 speed: 0.2    # Twist.linear.x的值
 accuracy_deg: 5.0 # 计算的角度的精确度，超过该范围则进行控制
 accuracy_dist: 0.05
-laser_update_interval: 0.5    # 激光雷达数据的处理频率，秒
+max_dist: 1.3
+max_linear_speed: 0.1
+max_angular_speed: 0.5707963
+laser_update_interval: 1    # 激光雷达数据的处理频率，秒
+vel_update_interval: 0.5
+
+same_count: 5

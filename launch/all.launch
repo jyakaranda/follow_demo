@@ -1,0 +1,9 @@
+<launch>
+    <node pkg="follow_demo" type="robot_base" name="robotBaseNode" output="screen">
+        <rosparam file="$(find follow_demo)/param/params.yaml" command="load" />
+    </node>
+    <node pkg="follow_demo" type="sensor_source" name="sensorSourceNode">
+        <rosparam file="$(find follow_demo)/param/params.yaml" command="load" />
+    </node>
+
+</launch>

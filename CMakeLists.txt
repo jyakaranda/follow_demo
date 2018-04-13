@@ -8,10 +8,15 @@ project(follow_demo)
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
-  message_generation
   roscpp
   std_msgs
+  cv_bridge
+  image_transport
+  sensor_msgs
+  message_generation
 )
+
+find_package(OpenCV REQUIRED)
 
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
@@ -207,12 +212,13 @@ target_link_libraries(robot_base
   ${catkin_LIBRARIES}
 )
 
-add_executable(sensor_souce
-  src/sensor_souce.cpp
+add_executable(sensor_source
+  src/sensor_source.cpp
 )
-add_dependencies(sensor_souce ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-target_link_libraries(sensor_souce
+add_dependencies(sensor_source ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+target_link_libraries(sensor_source
   ${catkin_LIBRARIES}
+  ${OpenCV_LIBRARIES}
 )
 
 add_executable(detect_alpha
