@@ -244,7 +244,7 @@ void SensorSource::cb_camera(const sensor_msgs::Image::ConstPtr &msg){
     cv::imshow(OPENCV_WINDOW, cv_ptr->image);
     cv::waitKey(30);
 
-    cv::Mat test;
+    cv::cvCvtColor(cv_ptr->image, cv_ptr->image,cv::CV_BGR2GRAY);
     resize(cv_ptr->image,cv_ptr->image,imageSize);
     vector<float> imageDescriptor;
     coumputeHog(cv_ptr->image,imageDescriptor);
